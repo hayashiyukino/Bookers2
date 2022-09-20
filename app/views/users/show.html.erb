@@ -1,18 +1,5 @@
 <!-- ユーザーの詳細 -->
-<h2>User info</h2>
-  <%= image_tag @user.get_profile_image(100,100) %>
-  <table>
-    <tbody>
-      <tr>
-        <th>name</th>
-        <th><%= @user.name %></th>
-      </tr>
-      <tr>
-        <th>introduction</th>
-        <th></th>
-      </tr>
-    </tbody>
-  </table>
+<%= render 'UserInfo', user: @user %>
 
 <!-- ユーザーの投稿一覧 -->
 

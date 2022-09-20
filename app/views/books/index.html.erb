@@ -1,3 +1,6 @@
+<!-- ユーザーの詳細 -->
+<!--%= render 'users/UserInfo', user: @user %>-->
+
 <p id = "notice"></p>
 <h2>Books</h2>
   <table>
@@ -11,7 +14,7 @@
     </thead>
     <tbody>
       <% @books.each do |book| %>
-      
+
       <tr>
         <td>
           <%= link_to book_path(book.id) do %>

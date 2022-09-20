@@ -1,0 +1,28 @@
+<!-- ユーザーの詳細 -->
+<h2>User info</h2>
+  <%= image_tag @user.get_profile_image(100,100) %>
+  <table>
+    <tbody>
+      <tr>
+        <th>name</th>
+        <th><%= @user.name %></th>
+      </tr>
+      <tr>
+        <th>introduction</th>
+        <th></th>
+      </tr>
+    </tbody>
+  </table>
+
+<!-- ユーザーの投稿一覧 -->
+
+<% @books.each do |book| %>
+<div>
+  <%= link_to book_path(book.id) do %>
+  <% end %>
+  <p><%= image_tag book.user.get_profile_image(100,100) %></p>
+  <p><%= book.title %></p>
+  <p><%= book.body %></p>
+  <p><%= book.user.name %></p>
+</div>
+<% end %>

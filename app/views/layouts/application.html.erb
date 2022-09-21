@@ -18,10 +18,10 @@
       <% if user_signed_in? %>
         <ul>
           <li>
-            <%= link_to 'Home', user_path(current_user.id) %>
+            <%= link_to 'Home', user_path(current_user.id), method: :PATCH %>
           </li>
           <li>
-            <%= link_to 'Users', user_path(current_user.id) %>
+            <%= link_to 'Users', "/users" %>
           </li>
           <li>
             <%= link_to 'Books', books_path %>
@@ -30,15 +30,26 @@
             <%= link_to "Log out", destroy_user_session_path, method: :delete %>
           </li>
         </ul>
-        <% else %>
-        <li>
-          <%= link_to "新規登録", new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to "ログイン", new_user_session_path %>
-        </li>
+      <% else %>
+        <ul>
+          <li>
+            <%= link_to 'Home', "/" %>
+          </li>
+          <li>
+            <%= link_to "About", "homes/about" %>
+          </li>
+          <li>
+            <%= link_to "Sign up", new_user_registration_path %>
+          </li>
+          <li>
+            <%= link_to "Log in", new_user_session_path %>
+          </li>
+        </ul>
       <% end %>
     </header>
    <%= yield %>
   </body>
+  <footer>
+      <p>CopyRight Infratop.inc</p>
+  </footer>
 </html>

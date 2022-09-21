@@ -16,11 +16,13 @@ class UsersController < ApplicationController
    
    def index
      @users = User.all
+     #部分テンプレートを使えるようにする（＊current_userはログイン中のユーザーを指している）
+     @user = current_user
    end
    
   private
 
    def user_params
-    params.require(:user).permit(:name, :profile_image, :inputIntroduction)
+    params.require(:user).permit(:name, :profile_image, :introduction)
    end
 end

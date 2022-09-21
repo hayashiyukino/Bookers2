@@ -19,6 +19,8 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
+    #部分テンプレートを使えるようにする（＊current_userはログイン中のユーザーを指している）
+    @user = current_user
   end
 
   def show

@@ -17,4 +17,14 @@
   <% if user == current_user %>
     <p><%= link_to "プロフィール編集", edit_user_path(user) %></p>
   <% end %>
+
+<!--#NewBook-->
+<%= form_with model: book, url: "/books", method: :post do |f| %>
+<h4>New Book</h4>
+  <h5>title</h5>
+  <%= f.text_field :title %>
+  <h5>Opinion</h5>
+  <%= f.text_area :body %>
   
+  <%= f.submit 'Create Book' %>
+<% end %>

@@ -1,0 +1,13 @@
+
+
+<%= form_with model: @book, url: "/books", method: :post do |f| %>
+
+<h2>Edit Book</h2>
+  
+  <h5>title</h5>
+  <%= f.text_field :title %>
+  <h5>Opinion</h5>
+  <%= f.text_area :body %>
+  
+  <%= f.submit 'Update Book' %>
+<% end %>

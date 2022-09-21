@@ -19,7 +19,7 @@
   <% end %>
 
 <!--#NewBook-->
-<%= form_with model: book, url: "/books", method: :post do |f| %>
+<%= form_with model: @book, url: "/books", method: :post do |f| %>
 <h4>New Book</h4>
   <h5>title</h5>
   <%= f.text_field :title %>

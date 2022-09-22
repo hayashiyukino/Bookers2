@@ -1,5 +1,6 @@
-<!-- ユーザーの詳細 -->
-<%= render 'users/UserInfo', user: @user%>
+<!-- ユーザーの詳細の部分テンプレート -->
+<!--引数の@user,@bookはコントローラで定義する-->
+<%= render 'users/UserInfo', user: @user, book: @book%>
 
 <!--Book一覧-->
 <!--<p id = "notice">%= flash[:notice] %></p>-->
@@ -18,7 +19,9 @@
       <tr>
         <td>
           <!--投稿したユーザー詳細画面へのリンクをつける-->
-          <%= link_to users_path(@user.id) do %>
+          　<!--リンク先-->
+          <%= link_to user_path(book.user.id) do %> 
+          　<!--ユーザーの画像-->
           <%= image_tag book.user.get_profile_image(100,100) %>
           <% end %>
         </td>

@@ -1,14 +1,37 @@
-<!-- ユーザーの詳細 -->
-<%= render 'UserInfo', user: @user, book: @book %>
-
 <!-- ユーザーの一覧 -->
+ <!-- ユーザーの詳細の部分テンプレート -->
+ <!--引数の@user,@bookはコントローラで定義する-->
+<%= render 'users/UserInfo', user: @user, book: @book%>
 
-<% @users.each do |user| %>
-<div>
-  <%= link_to user_path(user.id) do %>
-  <% end %>
-  <p><%= image_tag user.get_profile_image(100,100) %></p>
-  <p><%= user.name %></p>
+<!--Book一覧-->
+<!--<p id = "notice">%= flash[:notice] %></p>-->
+<h2>Users</h2>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>image</th>
+        <th>name</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td>
+          <!--ユーザーの画像-->
+          <%= image_tag user.get_profile_image(100,100) %>
+        </td>
+        <td>
+          <%= user.name %>
+        </td>
+        <td>
+          <%= link_to "show", user_path(user.id) %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-</div>
-<% end %>
+
+

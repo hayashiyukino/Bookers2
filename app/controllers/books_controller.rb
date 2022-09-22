@@ -23,9 +23,9 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
     #部分テンプレートを使えるようにする
-    　#current_userはログイン中のユーザーを指している
+    #current_userはログイン中のユーザー
     @user = current_user
-    　#空のbookモデルを渡す
+    #新しく空のモデルを使う
     @book = Book.new
   end
 

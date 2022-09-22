@@ -2,14 +2,38 @@
 <%= render 'UserInfo', user: @user, book: @book %>
 
 <!-- ユーザーの投稿一覧 -->
+<!--Book一覧-->
+<!--<p id = "notice">%= flash[:notice] %></p>-->
+<h2>Books</h2>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Opinion</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @books.each do |book| %>
+      <tr>
+        <td>
+          <!--ユーザー詳細画面へのリンクをつける-->
+          　<!--リンク先-->
+          <%= link_to user_path(book.user.id) do %> 
+          　<!--ユーザーの画像-->
+          <%= image_tag book.user.get_profile_image(100,100) %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to book_path(book.id) do %>
+          <%= book.title %>
+          <% end %>
+        </td>
+        <td><%= book.body %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<% @books.each do |book| %>
-<div>
-  <%= link_to book_path(book.id) do %>
-  <% end %>
-  <p><%= image_tag book.user.get_profile_image(100,100) %></p>
-  <p><%= book.title %></p>
-  <p><%= book.body %></p>
-  <p><%= book.user.name %></p>
-</div>
-<% end %>
+

@@ -3,16 +3,30 @@
 
 <!--本の詳細-->
 <h2>Book detail</h2>
-<div>
-
-    <p><%= image_tag @books.user.get_profile_image(100,100) %></p>
-    <p><%= @books.user.name %></p>
-  <%= link_to @books.title, book_path(@books.id) %>
-    <p><%= @books.body %></p>
-  <% if @books.user == current_user %>
-    <%= link_to "Edit",  edit_book_path(@books)%>
-  <% end %>
-  <% if @books.user == current_user %>
-    <%= link_to "Destroy", book_path(@books), method: :delete, "data-confirm" => "本当に消しますか？" %>
-  <% end %>
-</div>
+  <table>
+   <tbody>
+     <tr>
+       <td>
+         <%= link_to user_path(@books.user.id) do %> 
+          <%= image_tag @books.user.get_profile_image(100,100) %>
+          <%= @books.user.name %>
+         <% end %>
+       </td>
+       <td>
+         <%= link_to @books.title, book_path(@books.id) %>
+       </td>  
+       <td>
+         <%= @books.body %></p>
+       </td>
+       <td>
+        <% if @books.user == current_user %>
+         <%= link_to "Edit",  edit_book_path(@books)%>
+        <% end %>
+       </td>
+       <td>
+        <% if @books.user == current_user %>
+         <%= link_to "Destroy", book_path(@books), method: :delete, "data-confirm" => "本当に消しますか？" %>
+        <% end %>
+       </td>
+   </tbody>
+  </table>

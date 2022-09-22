@@ -3,7 +3,7 @@
  <!--引数の@user,@bookはコントローラで定義する-->
 <%= render 'users/UserInfo', user: @user, book: @book%>
 
-<!--Book一覧-->
+<!--Users一覧-->
 <!--<p id = "notice">%= flash[:notice] %></p>-->
 <h2>Users</h2>
   <table>
@@ -23,9 +23,11 @@
           <%= image_tag user.get_profile_image(100,100) %>
         </td>
         <td>
+          <!--ユーザー名前-->
           <%= user.name %>
         </td>
         <td>
+          <!--ユーザー詳細ページへのリンク-->
           <%= link_to "show", user_path(user.id) %>
         </td>
       </tr>

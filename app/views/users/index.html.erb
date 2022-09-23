@@ -1,39 +1,43 @@
-<!-- ユーザーの一覧 -->
- <!-- ユーザーの詳細の部分テンプレート -->
- <!--引数の@user,@bookはコントローラで定義する-->
-<%= render 'users/UserInfo', user: @user, book: @book%>
-
-<!--Users一覧-->
-<!--<p id = "notice">%= flash[:notice] %></p>-->
-<h2>Users</h2>
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-        <th>image</th>
-        <th>name</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @users.each do |user| %>
-      <tr>
-        <td>
-          <!--ユーザーの画像-->
-          <%= image_tag user.get_profile_image(100,100) %>
-        </td>
-        <td>
-          <!--ユーザー名前-->
-          <%= user.name %>
-        </td>
-        <td>
-          <!--ユーザー詳細ページへのリンク-->
-          <%= link_to "show", user_path(user.id) %>
-        </td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-
-
+<main>
+  <p id = "notice"><%= flash[:notice] %></p>
+  <div class = "container px-5 px-sm-0">
+    <div class = "row">
+      <div class = "col-md-3">
+        <!-- ユーザーの詳細  book投稿フォームの部分テンプレート-->
+        <!--引数の@user,@bookはコントローラで定義する-->
+        <%= render 'UserInfo', user: @user, book: @book %>
+      </div>
+      <div class = "col-md-8 offset-md-1">
+        <!--Users一覧-->
+        <h2>Users</h2>
+          <table class = "table">
+            <thead>
+              <tr>
+                <th>image</th>
+                <th>name</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @users.each do |user| %>
+              <tr>
+                <td>
+                  <!--ユーザーの画像-->
+                  <%= image_tag user.get_profile_image(100,100) %>
+                </td>
+                <td>
+                  <!--ユーザー名前-->
+                  <%= user.name %>
+                </td>
+                <td>
+                  <!--ユーザー詳細ページへのリンク-->
+                  <%= link_to "show", user_path(user.id) %>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+</main>

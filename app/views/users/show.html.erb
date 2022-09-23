@@ -1,39 +1,46 @@
-<!-- ユーザーの詳細  book投稿フォーム-->
-<%= render 'UserInfo', user: @user, book: @book %>
-
-<!-- ユーザーの投稿一覧 -->
-<!--Book一覧-->
-<!--<p id = "notice">%= flash[:notice] %></p>-->
-<h2>Books</h2>
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-        <th>Title</th>
-        <th>Opinion</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @books.each do |book| %>
-      <tr>
-        <td>
-          <!--ユーザー詳細画面へのリンクをつける-->
-          　<!--リンク先-->
-          <%= link_to user_path(book.user.id) do %> 
-          　<!--ユーザーの画像-->
-          <%= image_tag book.user.get_profile_image(100,100) %>
-          <% end %>
-        </td>
-        <td>
-          <%= link_to book_path(book.id) do %>
-          <%= book.title %>
-          <% end %>
-        </td>
-        <td><%= book.body %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-
+<main>
+  <p id = "notice"><%= flash[:notice] %></p>
+  <div class = "container px-5 px-sm-0">
+    <div class = "row">
+      <div class = "col-md-3">
+        <!-- ユーザーの詳細  book投稿フォーム-->
+        <%= render 'UserInfo', user: @user, book: @book %>
+      </div>
+      <div class = "col-md-8 offset-md-1">
+        <!-- ユーザーの投稿book一覧 -->
+        <h2>Books</h2>
+          <table class = "table table-hover table-inverse">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Opinion</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @books.each do |book| %>
+              <tr>
+                <td>
+                  <!--ユーザー詳細画面へのリンクをつける-->
+                  　<!--リンク先-->
+                  <%= link_to user_path(book.user.id) do %> 
+                  　<!--ユーザーの画像-->
+                  <%= image_tag book.user.get_profile_image(100,100) %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to book_path(book.id) do %>
+                  <%= book.title %>
+                  <% end %>
+                </td>
+                <td><%= book.body %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+</main>
+    

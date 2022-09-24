@@ -4,6 +4,16 @@ class UsersController < ApplicationController
     @books = @user.books
     @book = Book.new
   end
+  
+  # def create
+  #   @user = User.new(user_params)
+  #   @user.user_id = current_user.id
+  #   if @user.save
+  #     redirect_to new_user_registration_path
+  #   else
+  #     render :new
+  #   end
+  # end
 
   def edit
     @user = User.find(params[:id])

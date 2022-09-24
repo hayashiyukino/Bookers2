@@ -45,11 +45,11 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
   
-  # def update
-  #   @book = Book.find(params[:id])
-  #   @book.update(user_params)
-  #   redirect_to user_path(@user.id), notice: "You have updated book successfully."
-  # end
+  def update
+    @book = Book.find(params[:id])
+    @book.update(book_params)
+    redirect_to book_path(@book.id), notice: "You have updated book successfully."
+  end
 
   private
 

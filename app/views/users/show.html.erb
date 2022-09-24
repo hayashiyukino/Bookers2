@@ -23,9 +23,9 @@
               <tr>
                 <td>
                   <!--ユーザー詳細画面へのリンクをつける-->
-                  　<!--リンク先-->
+                  <!--リンク先-->
                   <%= link_to user_path(book.user.id) do %> 
-                  　<!--ユーザーの画像-->
+                  <!--ユーザーの画像-->
                   <%= image_tag book.user.get_profile_image(100,100) %>
                   <% end %>
                 </td>

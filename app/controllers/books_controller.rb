@@ -14,8 +14,8 @@ class BooksController < ApplicationController
         #render でindexページに飛んだときにアクションを使えるようにする
         @books = Book.all
         @user = current_user
+        render "index"  #投稿一覧ページを再表示
         @book = Book.new
-        render :index  #投稿一覧ページを再表示
       end
   end
 
@@ -52,8 +52,12 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
-    @book.update(book_params)
-    redirect_to book_path(@book.id), notice: "You have updated book successfully."
+    if @book.update(book_params)
+      redirect_to book_path(@book.id), notice: "You have updated book successfully."
+    else
+      render "edit"
+      @book = Book.find(params[:id])
+    end
   end
 
   private

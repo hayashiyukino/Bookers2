@@ -3,7 +3,7 @@
   <div class = "container px-5 px-sm-0">
     <div id = "error_explanation">  
       <% if @book.errors.any? %>
-        <%= @book.errors.count %>errors prohibited this user from being saved:
+        <h3><%= @book.errors.count %>errors prohibited this user from being saved:</h3>
         <ul>
           <% @book.errors.full_messages.each do |message| %>
             <li><%= message %></li>
